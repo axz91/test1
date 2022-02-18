@@ -1,0 +1,29 @@
+---
+title: "test"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{test}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r  echo=FALSE,results='asis'}
+load("~/Downloads/ILMN_1222_Condello_TotalRNAseq20_Dec2021/1222.RData")
+library(test)
+ library(Glimma)
+    #glMDPlot(lrt, status=de, counts=x$counts, groups=treatment[grps[[f]]], side.main="GeneSymbol", anno=anno1, display.columns=c("GeneSymbol", "ENTREZID", "geneName", "DE1"), transform=TRUE, html = paste(names(my.contrasts)[f],"interactive_plot",sep="_"))
+   d =  glimmaVolcano(lrt,counts = x$counts[,grps[[f]]], 
+groups  = x$samples[grps[[f]],1],p.adj.method = "BH",
+main = names(my.contrasts)[f], anno=lrt_table, display.columns = c("Length","ENTREZID","geneName","logFC","PValue","FDR"),transform.counts = "cpm" )
+ 
+   d
+```
+
+
