@@ -1,0 +1,17 @@
+---
+output:github_document
+rmarkdown::html_vignette: default
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r  echo=FALSE,results='asis'}
+load("/Users/c/Downloads/ILMN_1222_Condello_TotalRNAseq20_Dec2021_html/1222.RData")
+ library(Glimma)
+   d =  glimmaVolcano(lrt,counts = x$counts[,grps[[f]]], 
+groups  = x$samples[grps[[f]],1],p.adj.method = "BH",
+main = names(my.contrasts)[f], anno=lrt_table, display.columns = c("Length","ENTREZID","geneName","logFC","PValue","FDR"),transform.counts = "cpm" )
+ 
+   d
+```
+
